@@ -109,11 +109,15 @@
      *      }
      */
     "js": [
-        {
-            "path": "app.js",
-            "bundle": true
-        }
-    ],
+    {
+        "path": "app.js",
+        "bundle": true
+    } , {
+            "path": "ext/packages/ext-locale/build/ext-locale-zh_CN.js"//国际化
+    } , {
+            "path": "app/ux/Renderer.js"//渲染grid
+    }
+],
 
     /**
      * List of all CSS assets in the right inclusion order.
