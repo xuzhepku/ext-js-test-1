@@ -10,6 +10,7 @@ Ext.define('app.view.main.MainController', {
 			extend : 'Ext.app.ViewController',
 
 			requires : ['Ext.MessageBox', 'Ext.window.Toast'],
+            uses : ['app.view.module.Module'],
 
 			alias : 'controller.main',
 
@@ -25,20 +26,30 @@ Ext.define('app.view.main.MainController', {
 			},
 
 			// 选择了主菜单上的菜单后执行
-			onMainMenuClick : function(menuitem) {
-				console.log(menuitem);
-				Ext.toast({
-
-							html : 'Data Saved , hello  this is a meessage',
-							title : menuitem.text,
-							saveDelay : 10,
-							align : 'tr',
-							closable : true,
-							width : 200,
-							useXAxis : true,
-							slideInDuration : 500
-						});
-			},
+//			onMainMenuClick : function(menuitem) {
+//				console.log(menuitem);
+//				Ext.toast({
+//
+//							html : 'Data Saved , hello  this is a meessage',
+//							title : menuitem.text,
+//							saveDelay : 10,
+//							align : 'tr',
+//							closable : true,
+//							width : 200,
+//							useXAxis : true,
+//							slideInDuration : 500
+//						});
+//			},
+            
+                        // 选择了主菜单上的菜单后执行
+            onMainMenuClick : function(menuitem) {
+                var maincenter = this.getView().down('maincenter');//down()：选择当前组件的子组件
+                maincenter.setActiveTab(maincenter.add({
+                            xtype : 'modulepanel',
+                            closable : true,
+                            reorderable : true
+                        }));
+            },
 
 			// 隐藏顶部和底部的按钮事件
 			hiddenTopBottom : function() {
