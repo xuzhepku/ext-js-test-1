@@ -34,6 +34,7 @@ Ext.define('app.view.main.menu.MainMenuTree', {
 							moduleName : menumodule.module,
 							text : menumodule.text,
 							leaf : true
+//                            handler : 'onMainMenuClick' 没有用，不知道为什么
 						};
 						menuitem.appendChild(childnode);
 					}
