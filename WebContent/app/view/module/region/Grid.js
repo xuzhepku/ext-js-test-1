@@ -20,10 +20,15 @@ Ext.define('app.view.module.region.Grid', {
 				enableTextSelection : true
 			},
 			initComponent : function() {
+                //可编辑
+				this.cellEditing = new Ext.grid.plugin.CellEditing({
+							clicksToEdit : 2
+						});
+				this.plugins = [this.cellEditing];
 				var viewModel = this.up('modulepanel').getViewModel();
 				// 创建grid列
-				this.columns = app.view.module.factory.ColumnsFactory.getColumns(
-						viewModel, 10);
+				this.columns = app.view.module.factory.ColumnsFactory
+						.getColumns(viewModel, 10);
 				this.callParent();
 			}
 		})
